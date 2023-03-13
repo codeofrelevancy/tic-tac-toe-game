@@ -11,8 +11,9 @@
 </head>
 
 <body>
-  <!-- Confetti animation -->
+  <!-- Confetti Animation -->
   <section class="confetti" id="confetti">
+    <div class="confetti-piece"></div>
     <div class="confetti-piece"></div>
     <div class="confetti-piece"></div>
     <div class="confetti-piece"></div>
@@ -30,123 +31,86 @@
 
   <main class="mx-auto" id="canvas">
     <!-- Header -->
-    <p
-      class="sticky top-0 z-10 backdrop-filter backdrop-blur-lg bg-opacity-30 border-b border-gray-200 flex h-6 md:h-14 items-center justify-center px-4 text-xs md:text-lg font-medium sm:px-6 lg:px-8">
-      Tic Tac Toe</p>
+    <header class="sticky top-0 z-10 backdrop-filter backdrop-blur bg-opacity-30 border-b border-gray-200 flex h-6 md:h-14 items-center justify-center px-4 text-xs md:text-lg font-medium sm:px-6 lg:px-8">
+      Tic Tac Toe
+    </header>
 
-    <!-- Tic Tac Toe Board -->
+    <!-- Board -->
     <section class="p-5">
       <div class="flex justify-center relative">
         <div class="board grid grid-cols-3" id="board">
-          <div id="0" class="cell w-20 h-20 md:w-32 md:h-32 text-3xl flex items-center justify-center">
-          </div>
-          <div id="1"
-            class="cell border-x border-black w-20 h-20 md:w-32 md:h-32 text-3xl flex items-center justify-center">
-          </div>
-          <div id="2" class="cell w-20 h-20 md:w-32 md:h-32 text-3xl flex items-center justify-center">
-          </div>
-          <div id="3"
-            class="cell border-y border-black w-20 h-20 md:w-32 md:h-32 text-3xl flex items-center justify-center">
-          </div>
-          <div id="4"
-            class="cell border border-black w-20 h-20 md:w-32 md:h-32 text-3xl flex items-center justify-center">
-          </div>
-          <div id="5"
-            class="cell border-y border-black w-20 h-20 md:w-32 md:h-32 text-3xl flex items-center justify-center">
-          </div>
-          <div id="6" class="cell w-20 h-20 md:w-32 md:h-32 text-3xl flex items-center justify-center">
-          </div>
-          <div id="7"
-            class="cell border-x border-black w-20 h-20 md:w-32 md:h-32 text-3xl flex items-center justify-center">
-          </div>
-          <div id="8" class="cell w-20 h-20 md:w-32 md:h-32 text-3xl flex items-center justify-center">
-          </div>
+          <div id="0" class="cell w-20 h-20 md:w-32 md:h-32 text-3xl flex items-center justify-center"></div>
+          <div id="1" class="cell border-x border-black w-20 h-20 md:w-32 md:h-32 text-3xl flex items-center justify-center"></div>
+          <div id="2" class="cell w-20 h-20 md:w-32 md:h-32 text-3xl flex items-center justify-center"></div>
+          <div id="3" class="cell border-y border-black w-20 h-20 md:w-32 md:h-32 text-3xl flex items-center justify-center"></div>
+          <div id="4" class="cell border border-black w-20 h-20 md:w-32 md:h-32 text-3xl flex items-center justify-center"></div>
+          <div id="5" class="cell border-y border-black w-20 h-20 md:w-32 md:h-32 text-3xl flex items-center justify-center"></div>
+          <div id="6" class="cell w-20 h-20 md:w-32 md:h-32 text-3xl flex items-center justify-center"></div>
+          <div id="7" class="cell border-x border-black w-20 h-20 md:w-32 md:h-32 text-3xl flex items-center justify-center"></div>
+          <div id="8" class="cell w-20 h-20 md:w-32 md:h-32 text-3xl flex items-center justify-center"></div>
         </div>
 
         <div id="win-line"></div>
       </div>
     </section>
 
-    <!-- Board players -->
+    <!-- Board Players -->
     <section class="mb-5 pb-12 flex items-center justify-center">
       <ul role="list" class="mt-10 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-20">
         <li>
           <div class="flex items-center gap-x-1 relative">
-            <img id="player-x-avatar" class="h-14 w-14 md:h-28 md:w-28 rounded-full object-cover"
-              src="./assets/images/davy-jones.jpg" alt="x">
-            <img id="player-x-trophy" src="./assets/images/trophy.png" class="trophy animate-wiggle" alt="trophy" />
+            <img id="player-x-avatar" class="h-14 w-14 md:h-28 md:w-28 rounded-full object-cover" src="./assets/images/davy-jones.jpg" alt="x" />
+            <img id="player-x-trophy" class="trophy animate-wiggle" src="./assets/images/trophy.png" alt="trophy" />
+
             <div class="ml-4">
-              <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900 animate-bounce"
-                id="player-x-name">Player X</h3>
+              <h3 id="player-x-name" class="text-base front-semibold leading-7 tracking-tight text-gray-900 animate-bounce">Player X</h3>
               <p class="text-xs text-gray-500">Score: <span id="player-x-score">0</span></p>
-              <button id="change-avatar-x" type="button"
-                class="ignore mt-[5px] rounded-md border border-gray-300 bg-indigo-600 text-white hover:bg-indigo-700 py-1.5 px-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50">Change</button>
+
+              <button id="player-x-avatar-action" class="ignore mt-[5px] rounded-md border border-gray-300 bg-indigo-600 text-white hover:bg-indigo-700 py-1.5 px-2.5 text-sm font-semibold text-gray-900 shadow-sm" type="button">Change</button>
             </div>
           </div>
         </li>
-
+        
         <li>
           <div class="flex items-center gap-x-1 relative">
-            <img id="player-o-avatar" class="h-14 w-14 md:h-28 md:w-28 rounded-full object-cover"
-              src="./assets/images/jack-sparrow.jpg" alt="o">
-            <img id="player-o-trophy" src="./assets/images/trophy.png" class="trophy animate-wiggle" alt="trophy" />
+            <img id="player-o-avatar" class="h-14 w-14 md:h-28 md:w-28 rounded-full object-cover" src="./assets/images/jack-sparrow.jpg" alt="o" />
+            <img id="player-o-trophy" class="trophy animate-wiggle" src="./assets/images/trophy.png" alt="trophy" />
+
             <div class="ml-4">
-              <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900" id="player-o-name">Player O
-              </h3>
+              <h3 id="player-o-name" class="text-base front-semibold leading-7 tracking-tight text-gray-900">Player O</h3>
               <p class="text-xs text-gray-500">Score: <span id="player-o-score">0</span></p>
-              <button id="change-avatar-o" type="button"
-                class="ignore mt-[5px] rounded-md border border-gray-300 bg-indigo-600 text-white hover:bg-indigo-700 py-1.5 px-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50">Change</button>
+
+              <button id="player-o-avatar-action" class="ignore mt-[5px] rounded-md border border-gray-300 bg-indigo-600 text-white hover:bg-indigo-700 py-1.5 px-2.5 text-sm font-semibold text-gray-900 shadow-sm" type="button">Change</button>
             </div>
           </div>
         </li>
       </ul>
     </section>
 
-    <!-- Board actions -->
+    <!-- Board Actions -->
     <section class="ignore mt-10 flex items-center justify-center space-x-4">
-      <button id="reset-game-action" type="button"
-        class="inline-flex justify-center rounded-md bg-gray-900 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 sm:ml-3 sm:w-auto disabled:bg-gray-300 disabled:cursor-not-allowed"
-        disabled>Reset Game</button>
-      <button id="reset-score-action" type="button"
-        class="inline-flex justify-center rounded-md bg-gray-900 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 sm:ml-3 sm:w-auto disabled:bg-gray-300 disabled:cursor-not-allowed"
-        disabled>Reset Score</button>
-      <button id="download-action" type="button"
-        class="inline-flex justify-center rounded-md bg-gray-900 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 sm:ml-3 sm:w-auto disabled:bg-gray-300 disabled:cursor-not-allowed"
-        disabled>Download</button>
+      <button id="reset-game-action" class="inline-flex justify-center rounded-md border-gray-900 bg-gray-900 px-3 py-2 text-sm front-semibold text-white shadow-sm hover:bg-gray-800 sm:w-auto disabled:cursor-not-allowed disabled:bg-gray-300" type="button" disabled>Reset Game</button>
+      <button id="reset-score-action" class="inline-flex justify-center rounded-md border-gray-900 bg-gray-900 px-3 py-2 text-sm front-semibold text-white shadow-sm hover:bg-gray-800 sm:w-auto disabled:cursor-not-allowed disabled:bg-gray-300" type="button" disabled>Reset Score</button>
+      <button id="download-action" class="inline-flex justify-center rounded-md border-gray-900 bg-gray-900 px-3 py-2 text-sm front-semibold text-white shadow-sm hover:bg-gray-800 sm:w-auto disabled:cursor-not-allowed disabled:bg-gray-300" type="button" disabled>Download</button>
     </section>
 
-    <!-- Information section -->
+    <!-- How it works? -->
     <article class="ignore prose max-w-none prose-sm hover:prose-a:text-indigo-600 mt-20 p-10 md:p-16 lg:p-20">
       <h1>How it works?</h1>
 
-      <p>Welcome to Tic Tac Toe! In this game, you'll be playing against a
-        friend, trying to get three of your symbols in a row before your opponent does.</p>
+      <p>Welcome to Tic Tac Toe! In this game, you'll be playing against a friend, trying to get three of your symbols in a row before your opponent does.</p>
 
-      <p>The game starts with player X's turn and they can click on an empty square to place their symbol. After player
-        X makes their move, it becomes player O's turn to place their symbol in an empty square. During each turn, the
-        game shows a bounce animation on the current player's name to indicate whose turn it is. This makes it easy for
-        players to keep track of whose turn it is and adds a fun element to the game.</p>
+      <p>The game starts with player X's turn and they can click on an empty square to place their symbol. After player X makes their move, it becomes player O's turn to place their symbol in an empty square. During each turn, the game shows a bounce animation on the current player's name to indicate whose turn it is. This makes it easy for players to keep track of whose turn it is and adds a fun element to the game.</p>
 
-      <p><span class="font-medium">Customizable Avatars:</span> By default,
-        you'll see Davy Jones and Jack Sparrow representing X and O respectively. But if you want to personalize the
-        game, you can upload your own avatars from your local machine. Note that the uploaded avatars won't persist
-        after a page refresh since there's no database connectivity.</p>
+      <p><span class="font-medium">Customizable Avatars:</span> By default, you'll see Davy Jones and Jack Sparrow representing X and O respectively. But if you want to personalize the game, you can upload your own avatars from your local machine. Note that the uploaded avatars won't persist after a page refresh since there's no database connectivity.</p>
 
-      <p><span class="font-medium">Victory Celebrations:</span> When a player wins, the game will display confetti
-        animations over winner's avatar and at the top of the page to celebrate the victory. The player's avatar will
-        also be adorned with an animated Tic Tac Toe trophy. And to help you see the winning move more clearly, the game
-        will highlight the three squares that make up the line.</p>
+      <p><span class="font-medium">Victory Celebrations:</span> When a player wins, the game will display confetti animations over winner's avatar and at the top of the page to celebrate the victory. The player's avatar will also be adorned with an animated Tic Tac Toe trophy. And to help you see the winning move more clearly, the game will highlight the three squares that make up the line.</p>
 
-      <p><span class="font-medium">Score Tracking:</span> Each player has a
-        score that increases by one after securing a victory. The scores are stored on the client side (in the local
-        storage of your browser) so you can keep track of your progress even if you close the page. And if you ever want
-        to start over, you can reset the scores to 0 for both players with a click of "Reset Score" button.</p>
+      <p><span class="font-medium">Score Tracking:</span> Each player has a score that increases by one after securing a victory. The scores are stored on the client side (in the local storage of your browser) so you can keep track of your progress even if you close the page. And if you ever want to start over, you can reset the scores to 0 for both players with a click of "Reset Score" button.</p>
 
-      <p><span class="font-medium">Reset Game:</span> To reset the game after a victory, you can click the "Reset Game"
-        button.</p>
+      <p><span class="font-medium">Reset Game:</span> To reset the game after a victory, you can click the "Reset Game" button.</p>
 
-      <p>At the end of the game, players can download an image of the board with the winning trophy and the score. This
-        image can be saved or shared with others.</p>
+      <p>At the end of the game, players can download an image of the board with the winning trophy and the score. This image can be saved or shared with others.</p>
 
       <p>In case the game ends in a draw, a popup message is displayed notifying you that the game ended in a draw.</p>
 
@@ -158,27 +122,22 @@
       </div>
     </article>
 
-    <!-- Draw modal -->
+    <!-- Draw Modal -->
     <div id="draw-modal" class="ignore relative z-10 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
       <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
-
+    
       <div class="fixed inset-0 z-10 overflow-y-auto">
         <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-          <div
-            class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+          <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
             <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
               <div class="sm:flex sm:items-start">
-                <div
-                  class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                  <svg class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+                <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                  <svg class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
                   </svg>
                 </div>
                 <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                  <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">Game ended in a draw!
-                  </h3>
+                  <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">Game ended in a draw!</h3>
                   <div class="mt-2">
                     <p class="text-sm text-gray-500">The game has ended in a draw. Both players have played their best
                       moves but neither has been able to claim victory. Don't worry though, there's always a chance for
@@ -189,8 +148,7 @@
               </div>
             </div>
             <div class="bg-gray-50 px-4 py-3 flex justify-end sm:px-6">
-              <button id="alright-action" type="button"
-                class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Alright</button>
+              <button id="alright-action" type="button" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Alright</button>
             </div>
           </div>
         </div>
