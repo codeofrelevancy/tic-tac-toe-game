@@ -289,3 +289,9 @@ h3.animate-bounce {
     bottom: -20px;
   }
 }
+
+@media (max-width: 767px) {
+  .win {
+    display: none;
+  }
+}
